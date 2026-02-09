@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pawiwahan</title>
+
+<style>
+*{box-sizing:border-box}
+
+/* ===== BODY ===== */
+body {
+  background-image: url('...');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+/* Media query untuk HP */
+@media(max-width: 600px){
+  body {
+    background-position: top; /* bagian atas gambar fokus di HP */
+  }
+}
+
+/* ===== TOP SECTION ===== */
+  
+.top-section{
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 20px 40px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:40px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:2;
+}
+
+
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  width:420px;
+  max-width:100%;
+  padding:40px 30px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 15px 40px #0000000f;
+  position:relative;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border-radius:18px;
+  border:1px solid #e3eaf3;
+}
+
+.small{letter-spacing:2px;color:#999}
+h1{margin:10px 0;font-size:32px}
+p{color:#555}
+
+/* ===== COUNTDOWN ===== */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:25px 0;
+}
+.time{
+  width:70px;
+  height:70px;
+  background:#9370DB;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  font-size:13px;
+}
+.time span{font-size:18px;font-weight:bold}
+
+/* ===== PROFILE ===== */
+  .profile{
+  width:260px;
+  text-align:center;
+  background:#ffffff;
+  padding:30px 20px;
+  border-radius:22px;
+  box-shadow:0 12px 35px rgba(85, 0, 255, 0.15);
+  margin:20px auto;
+}
+  
+ .profile{
+  width:260px;
+  text-align:center;
+  margin: 40px auto;   /* INI YANG BIKIN TENGAH + ADA JARAK */
+}
+.profile img{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  border:5px solid #9370DB;
+  object-fit:cover;
+}
+.profile h2{margin:12px 0 4px}
+.ortu{font-size:14px;color:#777}
+.lokasi{font-size:14px;margin-top:6px}
+
+.and{
+  margin:20px auto;
+  font-size:40px;
+  color:#9370DB;
+}
+
+/* ===== EVENT SECTION ===== */
+.event-section{
+  width:100%;
+  margin:60px 0 80px;
+}
+.event-card{
+  width:420px;
+  max-width:90%;
+  margin:0 auto;
+  background:#fff;
+  padding:40px 30px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+.event-title{
+  font-size:20px;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#9370DB;
+  margin-bottom:20px;
+}
+.event{
+  font-size:14px;
+  line-height:1.7;
+  color:#555;
+  margin-bottom:20px;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .9s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .top-section{flex-direction:column}
+  .and{display:none}
+}
+
+/* DOA */
+.doa-section {
+  padding: 70px 20px;
+}
+.doa-card {
+  max-width: 620px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #ffffff, #f1f5f9);
+  border-radius: 28px;
+  padding: 42px 36px;
+  text-align: center;
+  color: #1e293b;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.25),
+    0 0 45px rgba(96,165,250,.35);
+}
+.doa-judul {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #9370DB;
+  margin-bottom: 22px;
+}
+.doa-sloka {
+  font-size: 20px;
+  line-height: 1.9;
+  font-family: Georgia, serif;
+  margin-bottom: 22px;
+}
+.doa-arti {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #475569;
+  margin-bottom: 20px;
+}
+  .body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff, #ddd6fe);
+  overflow-x:hidden;
+}
+  .body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(192,132,252,.35), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(167,139,250,.35), transparent 45%),
+    linear-gradient(135deg, #f5ecff, #e9d5ff, #ddd6fe);
+  overflow-x:hidden;
+}
+  .dnd{
+  font-size: 80px;
+  text-align:center;
+    width:260px;
+  text-align:center;
+  background:#ffffff;
+  color: #9370DB;
+  padding:30px 20px;
+  border-radius:22px;
+  box-shadow:0 12px 35px rgba(0,0,0,.15);
+  margin:20px auto;
+  }
+  /* Profil */
+.profile h2, 
+.profile .ortu,
+.profile .lokasi {
+    color: #7B68EE; /* lavender gelap / ungu sesuai tema */
+}
+
+/* Teks tambahan atau simbol */
+.and {
+    color: #9370DB; /* bisa pakai tone lavender */
+}
+/* Semua balok transparan */
+.card, 
+.profile, 
+.event-card, 
+.doa-card, 
+.dnd {
+  background: rgba(230,230,250,0.85); /* lavender pastel transparan */
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(147,112,219,0.2);
+  text-align: center;
+  padding: 30px;
+  margin: 20px auto;
+  position: relative; /* biar icon bisa absolute */
+}
+.kisah-section{
+  padding: 60px 20px;
+  position: relative;
+}
+
+.kisah-title{
+  text-align: center;
+  font-size: 28px;
+  color: #9b6dd8;
+  margin-bottom: 40px;
+}
+
+.kisah-item{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+/* garis timeline */
+.kisah-section::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(#c9a3ff, #9b6dd8);
+  transform: translateX(-50%);
+}
+
+.kisah-dot{
+  width: 16px;
+  height: 16px;
+  background: #b98cff;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(185,140,255,.8);
+}
+
+.kisah-card{
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 22px;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeUp .8s ease;
+}
+
+.kisah-card img{
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 16px;
+}
+
+.kisah-card h3{
+  color: #8f5ed7;
+  margin-bottom: 10px;
+}
+
+.kisah-card p{
+  color: #6c4aa8;
+  line-height: 1.7;
+}
+
+/* animasi lembut */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform: translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* responsive laptop */
+@media(min-width:768px){
+  .kisah-card{
+    text-align: left;
+  }
+}
+
+
+/* ===== RESPONSIVE HP ===== */
+@media(max-width: 700px){
+  .story-card-flex {
+    flex-direction: column; /* foto di atas, teks di bawah */
+    text-align: center;
+  }
+  .story-card-flex .story-photo img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+
+/* ===== GALLERY SECTION ===== */
+
+.gallery-wrapper{
+  width:100%;
+  margin-top:60px;
+  display:block;   /* PENTING biar turun ke bawah */
+  text-align:center;
+}
+
+.gallery-title{
+  color:#7c3aed;
+  margin-bottom:20px;
+  font-size:50px;
+}
+
+.gallery-horizontal{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  padding:10px 20px;
+  scroll-snap-type:x mandatory;
+}
+
+.gallery-horizontal img{
+  width:260px;
+  height:360px;
+  object-fit:cover;
+  border-radius:20px;
+  flex-shrink:0;
+  scroll-snap-align:start;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+.gallery-horizontal img:hover{
+  transform:scale(1.05);
+  transition:.3s;
+}
+.gallery-section{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:80px;
+  overflow:hidden;
+}
+
+.slider{
+  width:100%;
+  max-width:900px;
+  overflow:hidden;
+}
+
+.slides{
+  display:flex;
+  gap:20px;
+  animation: slideAuto 18s linear infinite;
+}
+
+.slides img{
+  width:260px;
+  height:360px;
+  object-fit:cover;
+  border-radius:20px;
+  flex-shrink:0;
+  box-shadow:0 12px 28px rgba(124,58,237,.25);
+}
+}
+
+</style>
+</head>
+
+<body>
+<img src="WhatsApp Image 2026-02-08 at 22.39.45.jpeg"
+     style="position: fixed; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index:-1;">
+
+<!-- ===== ATAS ===== -->
+<div class="top-section">
+
+  <div class="card reveal">
+    <div class="small">Pawiwahan</div>
+    <h1>BAGUS & DAYU</h1>
+    <p>Om Swastyastu</p>
+
+    <div class="countdown">
+      <div class="time"><span id="d">0</span>Hari</div>
+      <div class="time"><span id="h">0</span>Jam</div>
+      <div class="time"><span id="m">0</span>Menit</div>
+      <div class="time"><span id="s">0</span>Detik</div>
+    </div>
+
+    <p>
+      Merupakan suatu kehormatan bagi kami mengundang
+      Bapak/Ibu/Saudara/i untuk hadir memberikan doa restu.
+    </p>
+    <b>Om Santih, Santih, Santih Om</b>
+  </div>
+
+
+  <div class="doa-section">
+  <div class="doa-card reveal">
+    <div class="doa-judul">DOA</div>
+    <div class="doa-sloka">
+      Om saha nāvavatu<br>
+      saha nau bhunaktu<br>
+      saha vīryaṃ karavāvahai<br>
+      tejasvi nāvadhītamastu<br>
+      mā vidviṣāvahai<br>
+      Om śāntiḥ śāntiḥ śāntiḥ om
+    </div>
+    <div class="doa-arti">
+      Semoga kita semua dilindungi<br>
+      Semoga kita semua diberi berkah<br>
+      Semoga kita semua memiliki kekuatan<br>
+      Semoga pembelajaran kita semua menjadi bermanfaat<br>
+      Semoga kita tidak saling bermusuhan<br>
+      Om damai, damai, damai Om
+    </div>
+    </div>
+
+  <div class="profile reveal">
+    <p>Kami mohon do'a & restunya atas pernikahan kami</p>
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80">
+    <h2>BAGUS</h2>
+    <p class="ortu">Putra Bapak .... & Ibu ....</p>
+    <p class="lokasi">📍 Gianyar, Bali</p>
+  </div>
+
+ <div class="dnd">&</div>
+
+  <div class="profile reveal">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&q=80">
+    <h2>DAYU</h2>
+    <p class="ortu">Putri Bapak .... & Ibu ....</p>
+    <p class="lokasi">📍 Ubud, Bali</p>
+  </div>
+
+</div>
+
+<!-- ===== ACARA ===== -->
+<div class="event-section">
+  <div class="event-card reveal">
+    <div class="event-title">ACARA</div>
+
+    <div class="event">
+      <strong>Pemberkatan</strong><br>
+      Sabtu, 20 Maret 2026<br>
+      09.00 – 11.00 WITA<br>
+      Pura Desa Adat, Gianyar – Bali
+    </div>
+
+    <div class="event">
+      <strong>Resepsi</strong><br>
+      Sabtu, 20 Maret 2026<br>
+      13.00 – 17.00 WITA<br>
+      Banjar Tegal, Ubud – Bali
+    </div>
+  </div>
+</div>
+  
+
+<script>
+/* ===== COUNTDOWN ===== */
+const target=new Date("March 20, 2026 09:00:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const diff=target-now;
+  d.innerHTML=Math.max(0,Math.floor(diff/86400000));
+  h.innerHTML=Math.max(0,Math.floor(diff%86400000/3600000));
+  m.innerHTML=Math.max(0,Math.floor(diff%3600000/60000));
+  s.innerHTML=Math.max(0,Math.floor(diff%60000/1000));
+},1000);
+
+/* ===== SCROLL REVEAL ===== */
+const reveals=document.querySelectorAll(".reveal");
+function revealOnScroll(){
+  const winH=window.innerHeight;
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < winH-100){
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll",revealOnScroll);
+revealOnScroll();
+</script>
+<section class="kisah-section">
+
+  <h2 class="kisah-title">Kisah Cinta</h2>
+
+  <div class="kisah-item">
+    <div class="kisah-dot"></div>
+
+    <div class="kisah-card">
+      <img src="https://i.pinimg.com/736x/c7/6f/34/c76f34b9b9a48522da262b1a036c0b27.jpg" alt="Pertemuan Pertama">
+      <h3>Pertemuan Pertama</h3>
+      <p>
+        Pertama kali kami bertemu di sebuah acara keluarga sederhana. 
+        Dari pertemuan itu kami mulai saling mengenal dan tumbuh rasa nyaman satu sama lain.
+      </p>
+    </div>
+  </div>
+
+  <div class="kisah-item">
+    <div class="kisah-dot"></div>
+
+    <div class="kisah-card">
+      <img src="https://i.pinimg.com/736x/c7/6f/34/c76f34b9b9a48522da262b1a036c0b27.jpg" alt="Lamaran">
+      <h3>Lamaran</h3>
+      <p>
+        Dengan penuh keyakinan dan doa, kami memutuskan melangkah ke hubungan yang lebih serius 
+        di hadapan keluarga tercinta.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="gallery-wrapper">
+  <h2 class="gallery-title">Galeri</h2>
+  <div class="gallery-horizontal">
+    <img src="https://i.pinimg.com/736x/c7/6f/34/c76f34b9b9a48522da262b1a036c0b27.jpg">
+    <img src="https://i.pinimg.com/736x/ae/ef/7b/aeef7bcfeb64045be43106874166c8ba.jpg">
+    <img src="https://i.pinimg.com/1200x/a7/10/c6/a710c68018e5da744ee1921026d6f691.jpg">
+    <img src="https://i.pinimg.com/736x/fa/db/9d/fadb9d5eeb989049e9289ad4a270ed1d.jpg">
+  </div>
+</div>
+
+</body>
+</html>/>
